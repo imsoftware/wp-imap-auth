@@ -1,4 +1,4 @@
-wp-imap-authentication2
+wp-imapauth
 =======================
 
-IMAP authentication for Wordpress 3.7.0+
+IMAP authentication for Wordpress 4.0.0+
