@@ -52,7 +52,7 @@ if( !class_exists('IMAPAuthentication') ) {
 			/* check non-void arguments */
 			if ( empty($user_name) || empty($password) ) {
 				$error = new WP_Error();
-				if ( empty($user_name) ) $error->add('empty_user_name', __('<strong>ERROR</strong>: Missing user name value.'));
+				if ( empty($user_name) ) $error->add('empty_username', __('<strong>ERROR</strong>: Missing user name value.'));
 				if ( empty($password) ) $error->add('empty_password', __('<strong>ERROR</strong>: Missing password value.'));
 				return $error;
 			}
