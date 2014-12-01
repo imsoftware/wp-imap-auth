@@ -37,6 +37,12 @@
 	
 	add_action('admin_menu', array('IMAPAuthentication', 'admin_menu'));
 
+/* Suppress password reset */
+	add_action('lost_password', array('IMAPAuthentication', 'disable_password'));
+	add_action('retrieve_password', array('IMAPAuthentication', 'disable_password'));
+	add_action('password_reset', array('IMAPAuthentication', 'disable_password'));
+	add_filter('show_password_fields', array('IMAPAuthentication', 'show_password_fields'));
+
 
 if( !class_exists('IMAPAuthentication') ) {
 	class IMAPAuthentication {
@@ -97,6 +103,7 @@ if( !class_exists('IMAPAuthentication') ) {
 			return array( false, imap_last_error() );
 		}
 
+		/* Get option mfunctions */
 		static function get_mailbox() {
 			return get_option( 'imapauth_mailbox', '{localhost:143}INBOX' );
 		}
@@ -123,11 +130,27 @@ if( !class_exists('IMAPAuthentication') ) {
 			return $user_mail[0];
 		}
 
+
+		/* Suppresion of password retrieving/reset */
+		function disable_password() {
+			login_header( 'Log In', '', new WP_Error('password_reset_suppressed', '<strong>ERROR</strong>: This blog uses the IMAP login mechanism. Your password is set with your email account and cannot be reseted here.' ) );
+		?>
+	<p id="nav"><a href="<?php echo wp_login_url(); ?>" title="<?php esc_attr_e( 'Try again!' ); ?>"><?php printf( __( 'Log In' ) ); ?></a></p>
+		<?php
+			login_footer();
+			die();
+		}
+
+		/* disable password field visibility */
+		function show_password_fields($username) {
+			return false;
+		}
+
+
 		/* options pane for this plugin */
 		static function admin_menu() {
 			add_options_page('IMAP Authentication', 'IMAP Authentication', 10, __FILE__, 'show_plugin_page');
 		}
-
 
 		/* plugin option page */
 		static function show_plugin_page() {
