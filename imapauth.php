@@ -2,10 +2,10 @@
 /*
 	Plugin Name: IMAP Authentication 3
 	Version: 1.5
-	Plugin URI: http://blog.neverusethisfont.com/2009/02/imap-authentication-for-wordpress-271/
-	Description: Authenticate users using IMAP authentication. For Wordpress 4.0
-	Author: Aaron Parecki
-	Author URI: http://www.aaronparecki.com
+	Plugin URI: https://github.com/lorenzschmid/wp-imapauth
+	Description: Authenticate users using IMAP authentication. For Wordpress 4.0+
+	Author: Lorenz Schmid
+	Author URI: http://lorenz.retrouvailles.ch
 
 
 	Copyright 2009 by Aaron Parecki (email : aaron@parecki.com)
@@ -149,7 +149,7 @@ if( !class_exists('IMAPAuthentication') ) {
 
 		/* options pane for this plugin */
 		static function admin_menu() {
-			add_options_page('IMAP Authentication', 'IMAP Authentication', 10, __FILE__, 'show_plugin_page');
+			add_options_page('IMAP Authentication', 'IMAP Authentication', 10, __FILE__, array('IMAPAuthentication', 'show_plugin_page')) ;
 		}
 
 		/* plugin option page */
