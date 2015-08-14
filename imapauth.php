@@ -1,7 +1,7 @@
 <?php
 /*
 	Plugin Name: IMAP Authentication 3
-	Version: 1.5
+	Version: 3.1
 	Plugin URI: https://github.com/lorenzschmid/wp-imapauth
 	Description: Authenticate users using IMAP authentication. For Wordpress 4.0+
 	Author: Lorenz Schmid
