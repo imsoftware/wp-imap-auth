@@ -27,6 +27,13 @@
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+/* Plugin Update Routine */
+	include_once( plugin_dir_path( __FILE__ ) . 'wp-updater/updater.php' );
+	$updater = new Smashing_Updater( __FILE__ );
+	$updater->set_username( 'schmidlorenz' );
+	$updater->set_repository( 'wp-imapauth' );
+	$updater->initialize();
+
 /* Replace Wordpress authentication */
 	add_filter( 'authenticate', array('IMAPAuthentication', 'authenticate'), 1, 3 );
 
