@@ -177,7 +177,7 @@ if( !class_exists('IMAPAuthentication') ) {
 					</tr>
 					<tr valign="top">
 						<th scope="row"><label for="imapauth_create_new">User Registration</label></th>
-						<td><input name="imapauth_create_new" type="checkbox" id="imapauth_create_new" value="1" <?php if($opt_create_new) echo 'checked'; ?> /> Register new user automatically if succesful IMAP authentification.</td>
+						<td><input name="imapauth_create_new" type="checkbox" id="imapauth_create_new" value="1" <?php checked(true, $opt_create_new); ?> /> Register new user automatically if succesful IMAP authentification.</td>
 					</tr>
 				</table>
 			</fieldset>
