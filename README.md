@@ -1,5 +1,6 @@
-wp-imapauth
-===========
+# wp-imapauth
+
+**Please Note: Despite that it might still work, this project will not be updated anymore and is here just for reference.**
 
 IMAP authentication for Wordpress 4.0.0+
 
