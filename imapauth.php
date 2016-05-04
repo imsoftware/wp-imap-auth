@@ -38,9 +38,9 @@
 	add_filter( 'authenticate', array('IMAPAuthentication', 'authenticate'), 1, 3 );
 
 /* Wordpress Options */
-    add_option('imapauth_mailbox', '{localhost:143}INBOX');
-    add_option('imapauth_pad_domain', '');
-    add_option('imapauth_create_new', 'false');
+	add_option('imapauth_mailbox', '{localhost:143}INBOX');
+	add_option('imapauth_pad_domain', '');
+	add_option('imapauth_create_new', 'false');
 	
 	add_action('admin_menu', array('IMAPAuthentication', 'admin_menu'));
 
@@ -49,6 +49,17 @@
 	add_action('retrieve_password', array('IMAPAuthentication', 'disable_password'));
 	add_action('password_reset', array('IMAPAuthentication', 'disable_password'));
 	add_filter('show_password_fields', array('IMAPAuthentication', 'show_password_fields'));
+
+/* Logging Function Wrapper */
+	if ( ! function_exists('write_log')) {
+		function write_log ( $log )  {
+			if ( is_array( $log ) || is_object( $log ) ) {
+				error_log( print_r( $log, true ) );
+			} else {
+				error_log( $log );
+			}
+		}
+	}
 
 
 if( !class_exists('IMAPAuthentication') ) {
@@ -101,11 +112,24 @@ if( !class_exists('IMAPAuthentication') ) {
 		}
 
 		static function imap_authenticate($user_name, $password) {
+			/* Try to logn ofer IMAP */
 			$user_email = IMAPAuthentication::get_user_mail($user_name);
 			$mbox = @imap_open( IMAPAuthentication::get_mailbox(), $user_email, $password, OP_HALFOPEN|OP_READONLY );
+
+			/* Login successful */
 			if($mbox) {
 				imap_close($mbox);
+				
+				if(WP_DEBUG === true) {
+					write_log( "[wp-imapauth] Login successful! User: ". sanitize_email( $user_name ) );
+				}	
 				return array( true, $user_email );
+			}
+
+			/* Login failed */
+			$imap_error = imap_last_error();
+			if(WP_DEBUG === true) {
+				write_log( "[wp-imapauth] Login failed! User: ". sanitize_email( $user_name ) .", Error: ". $imap_error );
 			}
 			return array( false, imap_last_error() );
 		}
