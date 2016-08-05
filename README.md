@@ -2,7 +2,7 @@
 
 ## Wordpress IMAP Authentication 4
 
-**Please Note: Despite that it might still work, this project will not be actively maintained. Feel free to fix the bugs.**
+**Despite that it might still work, this project will not be actively maintained. Please help to fix the bugs: https://github.com/imsoftware/wp-imap-auth/issues**
 
 IMAP authentication for Wordpress 4.0.0+
 
