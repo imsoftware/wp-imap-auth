@@ -196,7 +196,7 @@ if( !class_exists('IMAPAuthentication') ) {
 		<form name="imapauthenticationoptions" method="post" action="options.php">
 			<?php wp_nonce_field('update-options'); ?>
 			<input type="hidden" name="action" value="update" />
-			<input type="hidden" name="page_options" value="imapauth_mailbox,imapauth_pad_domain,impauth_create_new" />
+			<input type="hidden" name="page_options" value="imapauth_mailbox,imapauth_pad_domain,imapauth_create_new" />
 			<fieldset class="options">
 				<table width="100%" cellspacing="2" cellpadding="5" class="form-table">
 					<tr valign="top">
