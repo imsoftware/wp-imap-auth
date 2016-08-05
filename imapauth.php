@@ -113,7 +113,7 @@ if( !class_exists('IMAPAuthentication') ) {
 		}
 
 		static function imap_authenticate($user_name, $password) {
-			/* Try to logn ofer IMAP */
+			/* Try to login over IMAP */
 			$user_email = IMAPAuthentication::get_user_mail($user_name);
 			$mbox = @imap_open( IMAPAuthentication::get_mailbox(), $user_email, $password, OP_HALFOPEN|OP_READONLY );
 
