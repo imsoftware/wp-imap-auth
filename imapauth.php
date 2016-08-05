@@ -214,7 +214,7 @@ if( !class_exists('IMAPAuthentication') ) {
 				</table>
 			</fieldset>
 			<p class="submit">
-				<input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
+				<input class="button button-primary" type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
 			</p>
 		</form>
 	</div>
