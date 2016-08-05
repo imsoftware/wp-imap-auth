@@ -51,6 +51,20 @@
 	add_action('password_reset', array('IMAPAuthentication', 'disable_password'));
 	add_filter('show_password_fields', array('IMAPAuthentication', 'show_password_fields'));
 
+/* Suppress email change */
+	function ims_script_enqueuer(){
+        	if(current_user_can('edit_users')==false) {
+            		echo '
+            		<script type="text/javascript">
+            			jQuery(document).ready( function($) {
+                			$(".form-table #email").attr("readonly", true);
+            			});     
+            		</script>
+            		';
+        	}
+	}
+    add_action('admin_head-profile.php', 'ims_script_enqueuer');
+
 /* Logging Function Wrapper */
 	if ( ! function_exists('write_log')) {
 		function write_log ( $log )  {
