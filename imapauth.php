@@ -31,8 +31,8 @@
 /* Plugin Update Routine */
 	include_once( plugin_dir_path( __FILE__ ) . 'wp-updater/updater.php' );
 	$updater = new Smashing_Updater( __FILE__ );
-	$updater->set_username( 'schmidlorenz' );
-	$updater->set_repository( 'wp-imapauth' );
+	$updater->set_username( 'imsoftware' );
+	$updater->set_repository( 'wp-imap-auth' );
 	$updater->initialize();
 
 /* Replace Wordpress authentication */
