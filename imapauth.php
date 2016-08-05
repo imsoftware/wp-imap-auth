@@ -57,7 +57,7 @@
             		echo '
             		<script type="text/javascript">
             			jQuery(document).ready( function($) {
-                			$(".form-table #email").attr("readonly", true);
+                			$(".user-email-wrap #email").prop('disabled', true);
             			});     
             		</script>
             		';
