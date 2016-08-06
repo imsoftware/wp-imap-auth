@@ -1,22 +1,15 @@
 # wp-imap-auth
 
-## Wordpress IMAP Authentication 4
+## Wordpress IMAP Authentication
 
-**Despite that it might still work, this project will not be actively maintained. Please help to fix the bugs: https://github.com/imsoftware/wp-imap-auth/issues**
-
-IMAP authentication for Wordpress 4.0.0+
+**Despite that it might work, this project will not be actively maintained.**
+**Please help to fix the bugs: https://github.com/imsoftware/wp-imap-auth/issues**
 
 This plugins replaces the regular authentication of wordpress and offers instead the authentication of users via IMAP accounts. Password reset and retrieving are suppressed in order to avoid confussion.
 
 The IMAP authentication server as well as an automatic padding of the domain to a user name can be set on the plugins setting page under Settings > IMAP Authentication. Furthermore, users having a IMAP account on the defined server can automatically be register if set so.
 
-Plugin Name: IMAP Authentication 4
-
-Version: 4.0
-
 Plugin URI: https://github.com/imsoftware/wp-imap-auth/
-
-Description: Authenticate users using IMAP authentication. For Wordpress 4.0+
 
 Author: Aaron Parecki, Riccardo Magliocchetti, Lorenz Schmid, Marius Müller
 
