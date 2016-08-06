@@ -3,6 +3,7 @@
 ## Wordpress IMAP Authentication
 
 **Despite that it might work, this project will not be actively maintained.**
+
 **Please help to fix the bugs: https://github.com/imsoftware/wp-imap-auth/issues**
 
 This plugins replaces the regular authentication of wordpress and offers instead the authentication of users via IMAP accounts. Password reset and retrieving are suppressed in order to avoid confussion.
