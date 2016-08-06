@@ -58,7 +58,7 @@
             		echo '
             		<script type="text/javascript">
             			jQuery(document).ready( function($) {
-                			$(".user-email-wrap #email").prop('disabled', true);
+                			$(".user-email-wrap #email").prop("disabled", true);
             			});     
             		</script>
             		';
