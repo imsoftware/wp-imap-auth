@@ -1,13 +1,14 @@
 <?php
 /*
-	Plugin Name: IMAP Authentication 3
+	Plugin Name: WP IMAP Authentication
 	Version: 4.0
 	Plugin URI: https://github.com/imsoftware/wp-imap-auth/
 	Description: Authenticate users using IMAP authentication. For Wordpress 4.0+
 	Author: A. Parecki, R. Magliocchetti, L. Schmid, M. Müller
 	Author URI: http://imsoftware.de
-
-
+	License: GPL2
+	License URI: https://www.gnu.org/licenses/gpl-2.0.html
+	
 	Copyright 2009 by Aaron Parecki (email : aaron@parecki.com)
 	Copyright 2013 by Unbit sas (author : Riccardo Magliocchetti)
 	Copyright 2014 by Lorenz Schmid (email : schmid.lorenz@gmail.com) 
