@@ -1,7 +1,7 @@
 <?php
 /*
 	Plugin Name: WP IMAP Authentication
-	Version: 4.0
+	Version: 4.0.1
 	Plugin URI: https://github.com/imsoftware/wp-imap-auth/
 	Description: Authenticate users using IMAP authentication. For Wordpress 4.0+
 	Author: A. Parecki, R. Magliocchetti, L. Schmid, M. Müller
@@ -52,6 +52,22 @@
 	add_action('password_reset', array('IMAPAuthentication', 'disable_password'));
 	add_filter('show_password_fields', array('IMAPAuthentication', 'show_password_fields'));
 
+/* Prefill login form with mail */
+// As part of WP login form construction, call our function
+	add_filter ( 'login_form', 'ims_login_form_prefill' );
+
+	function ims_login_form_prefill(){
+	    // Output jQuery to pre-fill the box
+	    if ( isset( $_REQUEST['u'] ) ) { // Make sure a username was passed
+		?>
+		<script type="text/javascript">
+			var el = document.getElementById("user_login");
+			el.value = "<?php echo( $_REQUEST['u'] ); ?>";
+		</script>
+		<?php
+	    }
+	}
+	
 /* Suppress email change */
 	function ims_script_enqueuer(){
         	if(current_user_can('edit_users')==false) {
@@ -59,12 +75,12 @@
             		<script type="text/javascript">
             			jQuery(document).ready( function($) {
                 			$(".user-email-wrap #email").prop("disabled", true);
-            			});     
+            			});
             		</script>
             		';
         	}
 	}
-    add_action('admin_head-profile.php', 'ims_script_enqueuer');
+    	add_action('admin_head-profile.php', 'ims_script_enqueuer');
 
 /* Logging Function Wrapper */
 	if ( ! function_exists('write_log')) {
